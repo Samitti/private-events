@@ -1,0 +1,13 @@
+<h1>Sign In </h1>
+<%= form_tag(session_path) do %>
+  <fieldset>
+    <p>
+      <%= label_tag :name %>
+      <%= name_field_tag :name, nil, autofocus: true %>
+    </p>
+
+    <p>
+      <%= submit_tag "Sign In" %>
+    </p>
+  </fieldset>
+<% end %>
