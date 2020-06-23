@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :sign_in, expect: [:new, :create]
+  before_action :sign_in, except: [:new, :create]
   before_action :set_params, only: [:edit, :show, :update, :destroy]
 
   def index
