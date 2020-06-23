@@ -1,4 +1,14 @@
-<h1><%= @user.name %></h1>
-
-<%= link_to 'Edit User Account', edit_user_path(@user) %> | 
-<%= link_to 'Delete Account', user_path(@user), method: :delete %>
+<h1 class="text-center"><%= @user.name %></h1>
+<div class="container">
+  <% if actual_user? %>
+  <ul class="nav d-flex justify-content-center mt-5"> 
+  <li>
+    <%= link_to 'Edit User Account', edit_user_path(@user), class: 'btn btn-light' %>  
+  </li>
+  <li>
+    <%= link_to 'Delete Account', user_path(@user), method: :delete, class: 'btn btn-light ml-2'  %>
+  </li>
+  </ul>
+  
+<% end  %>
+</div>

@@ -1,14 +1,37 @@
-<h1>All Users</h1>
+<div class="container">
+
+  <h1 class="text-center">All Users</h1>
 <header>
-  <nav>
-    <%= link_to 'Create New User', new_user_path %>
+<% if current_user %>
+  <h3 class="navbar-brand">Hello <%= current_user.name %></h3>
+<% else %>
+  <h3 class="navbar-brand">No User Signed In</h3>
+<% end %>
+  <nav class="nav d-flex justify-content-end ">
+
+  <% if current_user %>
+    <li class="nav-item">
+      <%= link_to 'Sign Out', session_path, method: :delete, class: 'btn btn-outline-dark' %> 
+    </li>
+  <% else %>
+    <li>
+      <%= link_to 'Sign Up', new_user_path, class: 'btn btn-outline-dark' %> 
+    </li>
+
+    <li>
+      <%= link_to 'Sign In', new_session_path, class: 'btn btn-outline-dark ml-2' %>
+    </li>
+    
+  <% end %>
+    
   </nav>
 </header>
 
 <% @users.each do |user| %>
-  <ul>
-    <li>
+  <ul class="list-group mt-4">
+    <li class="list-group-item">
       <%= link_to user.name, user_path(user) %>
     </li>
   </ul>
 <% end %>
+</div>
