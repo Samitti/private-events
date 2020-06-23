@@ -1,0 +1,19 @@
+<div class="container">
+  <h1> <%= @event.name %> </h1>
+  <table class="table table-bordered">
+  <thead>
+    <tr>
+      <th> Description </th>
+      <th> Location </th>
+      <th> When </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @event.description %> </td>
+      <td><%= @event.location %></td>
+       <td><%= @event.starts_at %> </td>
+    </tr>
+  </tbody>
+</table>
+</div>

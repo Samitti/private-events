@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :sign_in, expect: [:new, :create]
   before_action :set_params, only: [:edit, :show, :update, :destroy]
 
   def index
@@ -12,10 +13,10 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params) 
-    @user.save 
-    session[:user_id] = @user.id
-
-    redirect_to root_path
+    if @user.save 
+      session[:user_id] = @user.id
+      redirect_to root_path, notice: 'New User created and logged in!'
+    end
   end
 
   def show

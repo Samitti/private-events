@@ -1,0 +1,13 @@
+<div class="container">
+  <h1>All Events</h1>
+
+
+  <ul class="mt-5">
+  <% @events.each do |event| %>
+    <p>
+      <%=link_to event.name, event %> => (<%= event.description %>)
+    </p>
+  <% end %>
+  </ul>
+</div>
+
