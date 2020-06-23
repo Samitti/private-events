@@ -1,0 +1,10 @@
+<%= form_for @user do |f| %>
+  <p>
+    <%= f.label :name %>
+  </p>  
+  <p>
+    <%= f.text_field :name, autofocus: true %>
+  </p>
+
+  <%= f.submit %>
+<% end %>

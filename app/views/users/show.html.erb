@@ -1,0 +1,4 @@
+<h1><%= @user.name %></h1>
+
+<%= link_to 'Edit User Account', edit_user_path(@user) %> | 
+<%= link_to 'Delete Account', user_path(@user), method: :delete %>

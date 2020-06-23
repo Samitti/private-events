@@ -1,0 +1,14 @@
+<h1>All Users</h1>
+<header>
+  <nav>
+    <%= link_to 'Create New User', new_user_path %>
+  </nav>
+</header>
+
+<% @users.each do |user| %>
+  <ul>
+    <li>
+      <%= link_to user.name, user_path(user) %>
+    </li>
+  </ul>
+<% end %>
