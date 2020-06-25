@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :sign_in, only: [:join]
+  before_action :sign_in, only: [:join, :show]
 
   def index
     case params[:filter]
@@ -12,6 +12,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    @users = User.all
 
     if current_user
       @current_attendee = current_user.user_events.find_by(event_id: @event.id)
@@ -43,7 +44,10 @@ class EventsController < ApplicationController
   end
 
   def join
-    @user_event = UserEvent.join_event(current_user.id, params[:event_id])
+    # flash[:notice] = params
+    # redirect_to event_path(params[:event_id])
+
+    @user_event = UserEvent.join_event(params[:user_id], params[:event_id])
     if @user_event.save
       flash[:notice] = 'Successfully Joined event' 
       redirect_to event_path(params[:event_id])

@@ -20,24 +20,39 @@
 
 <p><strong>Attendees: </strong></p>
 
-<% @event.attendees.each do |attendee| %>
-	<ul>
+<ul>
+  <% @event.attendees.each do |attendee| %>
 		<li>
 			<%= link_to attendee.name, attendee %>
 		</li>
-	</ul>
-<% end %>
+  <% end %>
+</ul>
+
+
 
 <% if !event_creator? %>
   <% if @current_attendee %>
     <p> You have registered for this event </p>
     <% else %>
-      <%= link_to 'Register for Event', event_join_path(@event), class: 'btn btn-secondary'%>
+      <%= link_to 'Register for Event', event_join_path({event_id: @event.id, user_id: current_user.id}), class: 'btn btn-secondary'%>
     <% end %>
     
 <% end %>
 
 <% if event_creator? %>
+<p><strong> Non_Attendees </strong></p>
+
+<ul>
+  <% @users.each do |user| %>
+    <% unless @event.attendees.include?(user) %>
+      <li>
+         <%= link_to user.name %>:  
+         <%= link_to 'Invite this User', event_join_path({event_id: @event.id, user_id: user.id}), class: 'btn btn-light' %>
+         <hr>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
   <%= link_to 'Edit Event', edit_event_path(@event) %> |
   <%= link_to 'Delete Event', event_path, method: :delete %>
 <% end %>
