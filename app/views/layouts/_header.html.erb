@@ -1,8 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <%= link_to 'All Events', events_path %>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+  <%= link_to 'Upcoming Events', events_path, class: 'btn btn-secondary' %>
+  <%= link_to "Past Events", events_filter_past_path, class: 'btn btn-secondary ml-2' %>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
     <% if current_user %>

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root 'events#index'
+  get 'events/filter/past' => 'events#index', filter: 'past'
   resources :events do
     get :join, to:'events#join', as: 'join'
   end

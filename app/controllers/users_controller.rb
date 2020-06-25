@@ -17,12 +17,14 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to root_path, notice: 'New User created and logged in!'
     else
-      flash.now[:notice] = "Plaese try again!"
+      flash.now[:notice] = "Please try again!"
       render :new 
     end
   end
 
   def show
+    @upcoming_user_events = current_user.events.upcoming
+    @past_user_events = current_user.events.past
   end
   
   def edit

@@ -4,4 +4,8 @@ class Event < ApplicationRecord
   has_many :user_events
   has_many :attendees, through: :user_events, class_name: 'User', dependent: :destroy
 
+
+  scope :past, -> { where('starts_at < ?', Time.now).order('starts_at') }
+  scope :upcoming, -> { where('starts_at >= ?', Time.now).order('starts_at') }
+
 end

@@ -1,14 +1,26 @@
 <h1 class="text-center"><%= @user.name %></h1>
 <div class="container">
 <div class="text-center">
-  <h3> Events to Attend </h3>
-    <% @user.attended_events.each do |event| %>
+  <h4><strong> Past User Events </strong></h4>
+    <% @past_user_events.each do |event| %>
       <li>
         <%= link_to event.name, event %>
       </li>
       <% end %>
   </ol>
+  <hr>
+  <h4><strong> Upcoming User Events </strong></h4>
+
+<% @upcoming_user_events.each do |event| %>
+	<ul>
+		<li>
+			<%= link_to event.name, event %>
+		</li>
+	</ul>
+<% end %>
 </div>
+
+
 
   <% if actual_user? %>
   <ul class="nav d-flex justify-content-center mt-5"> 

@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>All Events</h1>
+  <h1><%= pluralize(@events.size, 'Event') %></h1>
 
   <% if current_user %>
     <%= link_to 'Create New Event', new_event_path %>
@@ -8,7 +8,8 @@
   <ul class="mt-5">
   <% @events.each do |event| %>
     <p>
-        <%=link_to event.name, event %> => (<%= event.description %>)
+      <%=link_to event.name, event %>:
+      <%= truncate(event.description, length: 40, separator: ' ') %>
     </p>
   <% end %>
   </ul>

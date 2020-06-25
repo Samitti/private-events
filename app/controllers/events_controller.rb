@@ -2,7 +2,12 @@ class EventsController < ApplicationController
   before_action :sign_in, only: [:join]
 
   def index
-    @events = Event.all
+    case params[:filter]
+    when 'past'
+      @events = Event.past
+    else
+      @events = Event.upcoming
+    end
   end
 
   def show
