@@ -5,7 +5,11 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
-      <% if current_user %>
+    <% if current_user %>
+      <li class="nav-item">
+        <%= link_to current_user.name, user_path(current_user), class: 'nav-link btn'  %>
+      </li>
+
     <li class="nav-item">
       <%= link_to 'Sign Out', session_path, method: :delete, class: 'nav-link' %> 
     </li>

@@ -1,6 +1,6 @@
 <div class="container">
   <h1> <%= @event.name %> </h1>
-  <h4>Event Creator: <%= link_to @event.user.name, @event.user %></h4>
+  <h4>Event Creator: <%= link_to @event.creator.name, @event.creator %></h4>
   <table class="table table-bordered">
   <thead>
     <tr>
@@ -17,6 +17,26 @@
     </tr>
   </tbody>
 </table>
+
+<p><strong>Attendees: </strong></p>
+
+<% @event.attendees.each do |attendee| %>
+	<ul>
+		<li>
+			<%= link_to attendee.name, attendee %>
+		</li>
+	</ul>
+<% end %>
+
+<% if !event_creator? %>
+  <% if @current_attendee %>
+    <p> You have registered for this event </p>
+    <% else %>
+      <%= link_to 'Register for Event', event_join_path(@event), class: 'btn btn-secondary'%>
+    <% end %>
+    
+<% end %>
+
 <% if event_creator? %>
   <%= link_to 'Edit Event', edit_event_path(@event) %> |
   <%= link_to 'Delete Event', event_path, method: :delete %>
