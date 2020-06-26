@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   def sign_in
     unless current_user
-      redirect_to new_user_path, notice: 'Please sign in first'
+      redirect_to new_session_path, notice: 'Please sign in first'
     end
   end
 
