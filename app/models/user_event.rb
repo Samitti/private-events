@@ -3,6 +3,6 @@ class UserEvent < ApplicationRecord
   belongs_to :attended_event, class_name: 'Event', foreign_key: 'event_id'
 
   def self.join_event(user_id, event_id)
-    create(user_id: user_id, event_id: event_id)
+    new(user_id: user_id, event_id: event_id)
   end
 end

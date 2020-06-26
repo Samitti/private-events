@@ -1,24 +1,39 @@
 <h1 class="text-center"><%= @user.name %></h1>
 <div class="container">
 <div class="text-center">
-  <h4><strong> Past User Events </strong></h4>
+
+  <h4><strong> Events You Created </strong></h4>
+<ol>
+  <% @creators_events.each do |event| %>
+      <li>
+        <%= link_to event.name, event %>
+      </li>
+  <% end %>
+</ol>
+<hr>  
+  <h5><strong> Past Events </strong></h5>
+  <ol>
     <% @past_user_events.each do |event| %>
       <li>
         <%= link_to event.name, event %>
       </li>
-      <% end %>
+    <% end %>
   </ol>
   <hr>
-  <h4><strong> Upcoming User Events </strong></h4>
+  <h5><strong> Upcoming Events To Attend </strong></h5>
 
-<% @upcoming_user_events.each do |event| %>
-	<ul>
-		<li>
-			<%= link_to event.name, event %>
-		</li>
-	</ul>
-<% end %>
+<ol>
+  <% @upcoming_user_events.each do |event| %>
+    
+      <li>
+        <%= link_to event.name, event %>
+      </li>
+    
+  <% end %>
+</ol>
 </div>
+
+
 
 
 
