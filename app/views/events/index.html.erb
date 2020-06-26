@@ -5,13 +5,14 @@
     <%= link_to 'Create New Event', new_event_path %>
   <% end %>
 
-  <ul class="mt-5">
   <% @events.each do |event| %>
-    <p>
-      <%=link_to event.name, event %>:
-      <%= truncate(event.description, length: 40, separator: ' ') %>
-    </p>
+    <div class="card mt-3" style="width: 18rem;">
+      <div class="card-body ">
+        <h5 class="card-title"><%=link_to event.name, event %></h5>
+        <h6 class="card-subtitle mb-2 text-muted"><%= event.location %></h6>
+        <p class="card-text"><%= truncate(event.description, length: 40, separator: ' ') %></p>
+      </div>
+    </div>
   <% end %>
-  </ul>
 </div>
 
