@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "Creating a new event" do
+describe 'Creating a new event' do
   before do
     visit root_url
     click_link 'Sign Up'
@@ -9,16 +9,16 @@ describe "Creating a new event" do
     click_button 'Create User'
   end
 
-  it "creates a new event only if a user is signed in" do
+  it 'creates a new event only if a user is signed in' do
     visit root_url
 
     click_link 'Create New Event'
     expect(current_path).to eq(new_event_path)
 
-    fill_in "Name",	with: "Kata Kamp"
-    fill_in "Description",	with: "Fun Event"
-    fill_in "Location",	with: "Bali"
-    select (Time.now.year + 1).to_s, from: "event_starts_at_1i" 
+    fill_in 'Name', with: 'Kata Kamp'
+    fill_in 'Description', with: 'Fun Event'
+    fill_in 'Location', with: 'Bali'
+    select (Time.now.year + 1).to_s, from: 'event_starts_at_1i'
 
     click_button 'Create Event'
 
@@ -27,18 +27,15 @@ describe "Creating a new event" do
     expect(page).to have_text('Kata Kamp')
     expect(page).to have_text('Fun Event')
     expect(page).to have_text('Bali')
-  end  
+  end
 end
 
-describe "Creating an Event when not signed-in" do
-  it "creating a new event requires a user to sign-in or sign-up" do
+describe 'Creating an Event when not signed-in' do
+  it 'creating a new event requires a user to sign-in or sign-up' do
     visit root_url
 
-    expect(page).to have_link('Sign Up') 
-    expect(page).to have_link('Sign In') 
-    expect(page).to have_no_link('Create New Event')  
+    expect(page).to have_link('Sign Up')
+    expect(page).to have_link('Sign In')
+    expect(page).to have_no_link('Create New Event')
   end
-  
 end
-
-

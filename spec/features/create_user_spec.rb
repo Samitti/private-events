@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'creating a new user' do 
+describe 'creating a new user' do
   it 'saves a user and signs in' do
     visit root_url
     click_link 'Sign Up'
@@ -19,4 +19,3 @@ describe 'creating a new user' do
     expect(page).to have_text('Please try again!')
   end
 end
-
