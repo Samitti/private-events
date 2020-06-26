@@ -35,13 +35,13 @@ class UsersController < ApplicationController
   def update
     @user.update(user_params)
 
-    redirect_to @user
+    redirect_to @user, notice: 'User Account Updated'
   end
 
   def destroy
     @user.destroy 
     session[:user_id] = nil
-    redirect_to root_path
+    redirect_to root_path, notice: 'Account deleted succesfully'
   end
 
 

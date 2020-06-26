@@ -3,7 +3,7 @@
 <div class="text-center">
 
   <h4><strong> Events You Created </strong></h4>
-<ol>
+<ol class="list-unstyled">
   <% @creators_events.each do |event| %>
       <li>
         <%= link_to event.name, event %>
@@ -12,7 +12,7 @@
 </ol>
 <hr>  
   <h5><strong> Past Events </strong></h5>
-  <ol>
+  <ol class="list-unstyled">
     <% @past_user_events.each do |event| %>
       <li>
         <%= link_to event.name, event %>
@@ -22,21 +22,15 @@
   <hr>
   <h5><strong> Upcoming Events To Attend </strong></h5>
 
-<ol>
+<ol class="list-unstyled">
   <% @upcoming_user_events.each do |event| %>
-    
       <li>
         <%= link_to event.name, event %>
       </li>
-    
   <% end %>
 </ol>
 </div>
-
-
-
-
-
+<hr>
   <% if actual_user? %>
   <ul class="nav d-flex justify-content-center mt-5"> 
   <li>

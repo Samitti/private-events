@@ -1,18 +1,18 @@
 <div class="container">
-  <h1><%= pluralize(@events.size, 'Event') %></h1>
+  <h1 class="display-4 text-center"><%= pluralize(@events.size, 'Event') %></h1>
 
-  <% if current_user %>
-    <%= link_to 'Create New Event', new_event_path, class: 'btn btn-lg btn-primary' %>
-  <% end %>
-
-  <% @events.each do |event| %>
-    <div class="card mt-3" style="width: 18rem;">
-      <div class="card-body ">
-        <h5 class="card-title"><%=link_to event.name, event %></h5>
-        <h6 class="card-subtitle mb-2 text-muted"><%= event.location %></h6>
-        <p class="card-text"><%= truncate(event.description, length: 40, separator: ' ') %></p>
+  <div class="row">
+    <% @events.each do |event| %>
+      <div class="col-md-4">
+        <div class="card mt-3" style="width: 18rem;">
+          <div class="card-body ">
+            <h5 class="card-title"><%=link_to event.name, event %></h5>
+            <h6 class="card-subtitle mb-2 text-muted"><%= event.location %></h6>
+            <p class="card-text"><%= truncate(event.description, length: 40, separator: ' ') %></p>
+          </div>
+        </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
 

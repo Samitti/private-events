@@ -1,12 +1,14 @@
 <div class="container">
-  <%= form_for @user do |f| %>
-  <p class="form-group row">
-    <%= f.label :name, class: 'col-sm-2 col-form-label' %>
-  </p>  
-  <p>
-    <%= f.text_field :name, autofocus: true, class: "form-control"  %>
-  </p>
+  <div class="form-group" >
+    <%= form_for @user do |f| %>
+      <p>
+        <%= f.label :name%>
+      </p>  
+      <p>
+        <%= f.text_field :name, autofocus: true, class: "form-control", placeholder: "Enter Name"  %>
+      </p>
 
-  <%= f.submit %>
-<% end %>
+      <%= f.submit 'Sign Up', class: 'btn btn-primary' %>
+    <% end %>
+  </form>
 </div>
