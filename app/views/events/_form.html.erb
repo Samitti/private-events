@@ -1,28 +1,28 @@
 <%= form_for(@event) do |f| %>
-  <fieldset>
-    <ol>
-      <li>
+  <div class="text-center">
+    <div>
+      <p>
         <%= f.label :name %><br>
         <%= f.text_field :name, autofocus: true %>
-      </li>
-      <li >
+      </p>
+      <p >
         <%= f.label :description %><br>
         <%= f.text_area :description, cols: 40, rows: 7 %>
-      </li>
-      <li >
+      </p>
+      <p >
         <%= f.label :location %><br>
         <%= f.text_field :location, size: 30 %>
-      </li>
+      </p>
       
-      <li >
+      <p >
         <%= f.label :starts_at %><br>
         <%= f.datetime_select :starts_at %>
-      </li>
+      </p>
       
-    </ol>
+    </div>
     <p>
       <%= f.submit %>
       <%= link_to "Cancel", events_path %>
     </p>
-  </fieldset>
+  </div>
 <% end %>
