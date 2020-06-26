@@ -55,7 +55,6 @@ end
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
-  gem 'rspec-rails', '~> 4.0', '>= 4.0.1'
   gem 'capybara', '>= 2.15'
   gem 'shoulda-matchers', '~> 4.3'
   gem 'launchy', '~> 2.5'

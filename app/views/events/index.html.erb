@@ -2,7 +2,7 @@
   <h1><%= pluralize(@events.size, 'Event') %></h1>
 
   <% if current_user %>
-    <%= link_to 'Create New Event', new_event_path %>
+    <%= link_to 'Create New Event', new_event_path, class: 'btn btn-lg btn-primary' %>
   <% end %>
 
   <% @events.each do |event| %>
