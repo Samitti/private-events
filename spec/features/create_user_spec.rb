@@ -19,3 +19,4 @@ describe 'creating a new user' do
     expect(page).to have_text('Please try again!')
   end
 end
+
