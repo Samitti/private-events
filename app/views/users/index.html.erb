@@ -2,11 +2,7 @@
 
   <h1 class="text-center">All Users</h1>
 <header>
-<% if current_user %>
   <h3 class="navbar-brand">Hello <%= current_user.name %></h3>
-<% else %>
-  <h3 class="navbar-brand">No User Signed In</h3>
-<% end %>
 </header>
 
 <% @users.each do |user| %>
