@@ -35,7 +35,7 @@ User.create!([
 
 
 user1 = User.find_by(name: 'John')
-user1.events.create!({
+user1.created_events.create!({
                         name: 'BugSmash',
                         location: 'Wynkoop in LoDo, Denver, CO',
                         starts_at: 10.days.from_now,
