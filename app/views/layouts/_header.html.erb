@@ -3,29 +3,20 @@
   <%= link_to "Past Events", events_filter_past_path, class: 'btn btn-secondary ml-2' %>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
-    <% if current_user %>
       <li class="nav-item">
-        <%= link_to current_user.name, user_path(current_user), class: 'nav-link btn'  %>
+        <%= user_name(current_user) %>
       </li>
-
-    <li class="nav-item">
-      <%= link_to 'Sign Out', session_path, method: :delete, class: 'nav-link' %> 
-    </li>
-  <% else %>
-    <li class="nav-item">
-      <%= link_to 'Sign Up', new_user_path, class: 'nav-link' %> 
-    </li>
-
-    <li class="nav-item">
-      <%= link_to 'Sign In', new_session_path, class: 'nav-link' %>
-    </li>
-  <% end %>
-
-  <li class="nav-item">
-      <%= link_to 'All Users', users_path, class: 'nav-link btn' %>
-    </li>
-  
+      <li class="nav-item">
+        <%= link_to 'All Users', users_path, class: 'nav-link btn' %>
+      </li>
+      <li class="nav-item">
+        <%= user_links(current_user) %>
+      </li>
+      <li class="nav-item">
+        <%= user_links2(current_user) %>
+      </li>
     </ul>
+
   </div>
    <div class="d-flex justify-content-end">
     <% if current_user %>
@@ -33,4 +24,21 @@
     <% end %>
   </div>
 </nav>
+<!--
+<% if current_user %>
+      
+        <%#= link_to current_user.name, user_path(current_user), class: 'nav-link btn'  %>
+    <li class="nav-item">
+      <%= link_to 'Sign Out', session_path, method: :delete, class: 'nav-link' %> 
+    </li>
+  <% else %>
+    <li class="nav-item">
+     
+    </li>
+   <%= link_to 'Sign Up', new_user_path, class: 'nav-link' %> 
+    <li class="nav-item">
+      <%= link_to 'Sign In', new_session_path, class: 'nav-link' %>
+    </li>
+  <% end %>
 
+  -->
