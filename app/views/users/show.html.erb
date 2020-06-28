@@ -31,15 +31,12 @@
 </ol>
 </div>
 <hr>
-  <% if actual_user? %>
   <ul class="nav d-flex justify-content-center mt-5"> 
-  <li>
-    <%= link_to 'Edit User Account', edit_user_path(@user), class: 'btn btn-light' %>  
-  </li>
-  <li>
-    <%= link_to 'Delete Account', user_path(@user), method: :delete, class: 'btn btn-light ml-2'  %>
-  </li>
+    <li>
+      <%= current_user_links(@user) %>  
+    </li>
+    <li>
+      <%= current_user_links2(@user)  %>
+    </li>
   </ul>
-  
-<% end  %>
 </div>

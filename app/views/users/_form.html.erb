@@ -7,8 +7,11 @@
       <p>
         <%= f.text_field :name, autofocus: true, class: "form-control", placeholder: "Enter Name"  %>
       </p>
-
-      <%= f.submit 'Create User', class: 'btn btn-primary' %>
+      <% if @user.new_record? %>
+        <%= f.submit 'Create User', class: 'btn btn-primary' %>
+      <% else %>
+        <%= f.submit 'Update User', class: 'btn btn-primary' %>
+      <% end %>
     <% end %>
   </form>
 </div>
