@@ -14,4 +14,8 @@ module ApplicationHelper
   def user_links2(*)
     link_to 'Sign In', new_session_path, class: 'nav-link' unless current_user
   end
+
+  def create_event
+    link_to 'Create New Event', new_event_path, class: 'btn btn-info' if current_user
+  end
 end

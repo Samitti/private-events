@@ -19,9 +19,7 @@
 
   </div>
    <div class="d-flex justify-content-end">
-    <% if current_user %>
-      <%= link_to 'Create New Event', new_event_path, class: 'btn btn-info' %>
-    <% end %>
+      <%= create_event %>
   </div>
 </nav>
 <!--
