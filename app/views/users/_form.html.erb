@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="form-group" >
+    <%= form_for @user do |f| %>
+      <p>
+        <%= f.label :name%>
+      </p>  
+      <p>
+        <%= f.text_field :name, autofocus: true, class: "form-control", placeholder: "Enter Name"  %>
+      </p>
+      <% if @user.new_record? %>
+        <%= f.submit 'Create User', class: 'btn btn-primary' %>
+      <% else %>
+        <%= f.submit 'Update User', class: 'btn btn-primary' %>
+      <% end %>
+    <% end %>
+  </form>
+</div>

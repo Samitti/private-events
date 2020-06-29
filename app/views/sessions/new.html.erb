@@ -1,0 +1,17 @@
+<div class="container">
+  <h1 class="text-center">Sign In</h1>
+  <div class="form-group text-center" >
+    <%= form_tag(session_path) do %>
+      <fieldset>
+        <p>
+          <%= label_tag :name %>
+          <%= text_field_tag :name, nil, autofocus: true, class: "form-control", placeholder: "Enter Name"  %>
+        </p>
+        <p>
+          <%= submit_tag "Sign In", class: 'btn btn-primary' %>
+        </p>
+      </fieldset>
+    <% end %>
+  </form>
+</div>
+

@@ -1,0 +1,15 @@
+<div class="container">
+
+  <h1 class="text-center">All Users</h1>
+<header>
+  <h3 class="navbar-brand">Hello <%= current_user.name %></h3>
+</header>
+
+<% @users.each do |user| %>
+  <ul class="list-group mt-4">
+    <li class="list-group-item">
+      <%= link_to user.name, user_path(user) %>
+    </li>
+  </ul>
+<% end %>
+</div>
